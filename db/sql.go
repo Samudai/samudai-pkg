@@ -20,7 +20,7 @@ func InitSQL() {
 		os.Exit(1)
 	}
 	db = conn
-	logger.LogMessage("info", "db connected")
+	logger.LogMessage("info", "postgres db connected")
 
 	if err := db.Ping(); err != nil {
 		logger.LogMessage("error", "error pinging to db: %v", err)
