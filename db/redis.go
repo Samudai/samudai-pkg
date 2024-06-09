@@ -13,12 +13,16 @@ var rdb *redis.Client
 func InitRedis() {
 	redisURL := os.Getenv("REDIS_URL")
 
-	rdb = redis.NewClient(&redis.Options{
-		Addr: redisURL,
-	})
+	options, err := redis.ParseURL(redisURL)
+	if err!= nil {
+		logger.LogMessage("error", "error parsing Redis URL: %v", err)
+		panic(err)
+	}
 
-	_, err := rdb.Ping(context.Background()).Result()
-	if err != nil {
+	rdb = redis.NewClient(options)
+
+	_, err = rdb.Ping(context.Background()).Result()
+	if err!= nil {
 		logger.LogMessage("error", "error connecting to Redis: %v", err)
 		panic(err)
 	}
