@@ -7,6 +7,7 @@ Common Package for Samudai Service
 - db: database
 DATABASE_URL
 MONGO_URL
+REDIS_URL
 
 - logger: logger
 SERVICE_NAME
