@@ -32,8 +32,19 @@ jobs:
           major=$(echo $latest_tag | cut -d. -f1 | tr -d 'v')
           minor=$(echo $latest_tag | cut -d. -f2)
           patch=$(echo $latest_tag | cut -d. -f3)
-          new_patch=$((patch + 1))
-          new_tag="v$major.$minor.$new_patch"
+
+          # Check commit message for version bump type
+          commit_msg=$(git log -1 --pretty=%B)
+          if [[ $commit_msg == *"#major"* ]]; then
+            new_major=$((major + 1))
+            new_tag="v$new_major.0.0"
+          elif [[ $commit_msg == *"#minor"* ]]; then
+            new_minor=$((minor + 1))
+            new_tag="v$major.$new_minor.0"
+          else
+            new_patch=$((patch + 1))
+            new_tag="v$major.$minor.$new_patch"
+          fi
           echo "NEW_TAG=$new_tag" >> $GITHUB_ENV
 
       - name: Create and push tag
