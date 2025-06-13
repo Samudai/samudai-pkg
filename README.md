@@ -58,4 +58,4 @@ import (
 
 ## License
 
-[MIT License](LICENSE)
+[Apache License](LICENCE)
