@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"io/ioutil"
+	"io"
 	"os"
 
 	"github.com/google/logger"
@@ -18,7 +18,7 @@ func Init() {
 	}
 
 	logs = logger.Init(service, false, false, lf)
-	console = logger.Init(service, true, false, ioutil.Discard)
+	console = logger.Init(service, true, false, io.Discard)
 }
 
 // LogMessage - function to log colored messages

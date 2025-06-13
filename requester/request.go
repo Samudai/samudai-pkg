@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"time"
@@ -162,7 +161,7 @@ func request(params RequestParams, count int) ([]byte, error) {
 	}
 
 	defer resp.Body.Close()
-	b, err = ioutil.ReadAll(resp.Body)
+	b, err = io.ReadAll(resp.Body)
 	if err != nil {
 		log.Println(fmt.Sprintf("Invalid response error when requesting %s %s with body %s - %v", params.Method, params.URL, string(params.Body), err))
 		return b, InvalidResponseError
