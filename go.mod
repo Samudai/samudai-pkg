@@ -1,19 +1,18 @@
 module github.com/Samudai/samudai-pkg
 
-go 1.24
+go 1.26.2
 
 require (
-	github.com/aws/aws-sdk-go v1.55.7
-	github.com/google/logger v1.1.1
-	github.com/lib/pq v1.10.9
-	github.com/redis/go-redis/v9 v9.10.0
+	github.com/aws/aws-sdk-go v1.55.8
+	github.com/google/logger v1.1.2
+	github.com/lib/pq v1.12.3
+	github.com/redis/go-redis/v9 v9.20.0
 	github.com/satori/go.uuid v1.2.0
-	go.mongodb.org/mongo-driver v1.17.4
+	go.mongodb.org/mongo-driver v1.17.9
 )
 
 require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
@@ -22,8 +21,9 @@ require (
 	github.com/xdg-go/scram v1.1.2 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
+	go.uber.org/atomic v1.11.0 // indirect
 	golang.org/x/crypto v0.26.0 // indirect
 	golang.org/x/sync v0.8.0 // indirect
-	golang.org/x/sys v0.23.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/text v0.17.0 // indirect
 )
